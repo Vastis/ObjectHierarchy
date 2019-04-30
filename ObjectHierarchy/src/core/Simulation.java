@@ -17,7 +17,7 @@ public class Simulation extends StateMachine {
     private long lastTime = System.nanoTime();
 
     private Simulation(Canvas canvas, TextArea logTextArea) {
-        this.simulationEngine = new SimulationEngine(canvas, logTextArea);
+        this.simulationEngine = new SimulationEngine(canvas);
         this.canvas = canvas;
         this.logTextArea = logTextArea;
         this.currentStatus = Status.IDLE;
@@ -29,19 +29,19 @@ public class Simulation extends StateMachine {
     }
 
     private void setIdle(){
-        setStatus(Status.IDLE);
+        this.currentStatus = Status.IDLE;
     }
     public void startSimulation() {
-        setStatus(Status.RUNNING);
+        this.currentStatus = Status.RUNNING;
     }
     public void pauseSimulation() {
-        setStatus(Status.PAUSED);
+        this.currentStatus = Status.PAUSED;
     }
     public void resumeSimulation() {
-        setStatus(Status.RESUMED);
+        this.currentStatus = Status.RESUMED;
     }
     public void endSimulation() {
-        setStatus(Status.ENDED);
+        this.currentStatus = Status.ENDED;
     }
 
     @Override
@@ -55,8 +55,7 @@ public class Simulation extends StateMachine {
 
     @Override
     protected void onIdle() {
-        this.now = System.nanoTime();
-        this.lastTime = this.now;
+        this.lastTime = System.nanoTime();
     }
     @Override
     protected void onRunning() {
@@ -71,26 +70,26 @@ public class Simulation extends StateMachine {
     }
     @Override
     protected void onPaused() {
-        log(this.logTextArea, ">>> Simulation paused. <<< <");
+        log(">>> Simulation paused. <<< <");
         setIdle();
     }
     @Override
     protected void onResumed() {
-        log(this.logTextArea, ">>> Simulation resumed. <<< <");
+        log(">>> Simulation resumed. <<< <");
         startSimulation();
     }
     @Override
     protected void onEnded() {
-        log(this.logTextArea, ">>> Simulation ended.  <<< <");
+        log(">>> Simulation ended.  <<< <");
         simulation = null;
     }
 
-    public static void log(TextArea textArea, String message){
+    public void log(String message){
         StringBuilder sb = new StringBuilder();
-        sb.append(textArea.getText());
+        sb.append(this.logTextArea.getText());
         sb.append(" > ");
         sb.append(message);
         sb.append('\n');
-        textArea.setText(sb.toString());
+        this.logTextArea.setText(sb.toString());
     }
 }

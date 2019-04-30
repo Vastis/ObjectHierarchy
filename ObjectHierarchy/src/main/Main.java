@@ -23,7 +23,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         try {
             XMLParser input = new XMLParser("./resrc/hierarchy.xml");
-            HierarchyFactory.getInstance(input);
+            HierarchyFactory.getInstance(new XMLParser("./resrc/hierarchy.xml"));
             launch(args);
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,34 +1,52 @@
 <root>
     <entity>
         <id>1</id>
+        <posX>200</posX>
+        <posY>50</posY>
         <subordinates>
             <entity>
                 <id>10</id>
+                <posX>100</posX>
+                <posY>100</posY>
             </entity>
             <entity>
                 <id>11</id>
+                <posX>300</posX>
+                <posY>100</posY>
             </entity>
         </subordinates>
     </entity>
     <entity>
         <id>2</id>
+        <posX>200</posX>
+        <posY>350</posY>
         <subordinates>
             <entity>
                 <id>20</id>
+                <posX>100</posX>
+                <posY>300</posY>
                 <subordinates>
                     <entity>
                         <id>200</id>
+                        <posX>100</posX>
+                        <posY>250</posY>
                     </entity>
                     <entity>
                         <id>201</id>
+                        <posX>150</posX>
+                        <posY>250</posY>
                     </entity>
                     <entity>
                         <id>202</id>
+                        <posX>200</posX>
+                        <posY>250</posY>
                     </entity>
                 </subordinates>
             </entity>
             <entity>
                 <id>21</id>
+                <posX>300</posX>
+                <posY>300</posY>
             </entity>
         </subordinates>
     </entity>

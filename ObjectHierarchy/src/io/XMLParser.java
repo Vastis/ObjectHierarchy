@@ -68,6 +68,18 @@ public class XMLParser implements InputManager<Document> {
                                     .getNodeValue().trim());
                     object.setId(id);
                     break;
+                case "posX":
+                    int posX = Integer.parseInt(
+                            n.getChildNodes().item(0)
+                                    .getNodeValue().trim());
+                    object.setPosX(posX);
+                    break;
+                case "posY":
+                    int posY = Integer.parseInt(
+                            n.getChildNodes().item(0)
+                                    .getNodeValue().trim());
+                    object.setPosY(posY);
+                    break;
                 case "subordinates":
                     ArrayList<Node> childNodes = getChildNodes(n);
                     for(Node child : childNodes){

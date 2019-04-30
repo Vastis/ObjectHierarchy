@@ -4,23 +4,20 @@ import environment.Environment;
 import environment.HierarchyFactory;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.TextArea;
 
 public class SimulationEngine {
 
     private Canvas canvas;
-    private TextArea logTextArea;
     private Environment environment;
 
-    public SimulationEngine(Canvas canvas, TextArea logTextArea) {
+    public SimulationEngine(Canvas canvas) {
         this.canvas = canvas;
-        this.logTextArea = logTextArea;
-        prepareEnvironment(HierarchyFactory.getInstance());
+        prepareEnvironment(new HierarchyFactory());
     }
 
     private void prepareEnvironment(HierarchyFactory hierarchyFactory) {
         try {
-            this.environment = new Environment(hierarchyFactory.getObjects());
+            this.environment = new Environment(this.canvas, hierarchyFactory.getObjects());
         } catch (NullPointerException e){
             System.err.println("Objects hierarchy has not been loaded or did not load properly.");
         }

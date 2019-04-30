@@ -1,7 +1,11 @@
 package environment;
 
 import io.InputManager;
+import io.XMLParser;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class HierarchyFactory {
@@ -10,6 +14,17 @@ public class HierarchyFactory {
     private ArrayList<SimObject> objects;
     private InputManager input;
 
+    public HierarchyFactory(){
+        try {
+            this.input = new XMLParser("./resrc/hierarchy.xml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+    }
     private HierarchyFactory(InputManager input) {
         this.input = input;
     }
