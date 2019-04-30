@@ -14,8 +14,8 @@ public abstract class StateMachine implements Runnable {
 
     @Override
     public void run(){
-        boolean appRunning = true;
-        while(appRunning){
+        boolean working = true;
+        while(working){
             try {
                 this.stateCheckSemaphore.acquire();
                 switch(this.currentStatus){
@@ -33,7 +33,7 @@ public abstract class StateMachine implements Runnable {
                         break;
                     case ENDED:
                         onEnded();
-                        appRunning = false;
+                        working = false;
                 }
                this.stateCheckSemaphore.release();
             } catch (InterruptedException e) {

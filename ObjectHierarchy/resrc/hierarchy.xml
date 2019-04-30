@@ -1,0 +1,35 @@
+<root>
+    <entity>
+        <id>1</id>
+        <subordinates>
+            <entity>
+                <id>10</id>
+            </entity>
+            <entity>
+                <id>11</id>
+            </entity>
+        </subordinates>
+    </entity>
+    <entity>
+        <id>2</id>
+        <subordinates>
+            <entity>
+                <id>20</id>
+                <subordinates>
+                    <entity>
+                        <id>200</id>
+                    </entity>
+                    <entity>
+                        <id>201</id>
+                    </entity>
+                    <entity>
+                        <id>202</id>
+                    </entity>
+                </subordinates>
+            </entity>
+            <entity>
+                <id>21</id>
+            </entity>
+        </subordinates>
+    </entity>
+</root>
