@@ -56,6 +56,8 @@ public class WindowController {
     }
 
     public void stopSimulation(){
-        this.simulation.endSimulation();
+        try {
+            this.simulation.endSimulation();
+        } catch (NullPointerException e){}
     }
 }

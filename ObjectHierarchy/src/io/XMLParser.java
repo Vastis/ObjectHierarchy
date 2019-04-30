@@ -1,6 +1,6 @@
 package io;
 
-import hierachy.SimObject;
+import environment.SimObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -35,7 +35,7 @@ public class XMLParser implements InputManager<Document> {
     }
 
     @Override
-    public ArrayList<SimObject> read() throws Exception {
+    public ArrayList<SimObject> read() {
         ArrayList<SimObject> objects = new ArrayList<>();
         Node root = this.document.getChildNodes().item(0);
         ArrayList<Node> primalNodes = getChildNodes(root);
@@ -81,7 +81,7 @@ public class XMLParser implements InputManager<Document> {
     }
 
     @Override
-    public void save(Document source, ArrayList<SimObject> data) throws Exception {
+    public void save(Document source, ArrayList<SimObject> data) {
 
     }
 }
